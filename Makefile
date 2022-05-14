@@ -2,12 +2,29 @@
 ## Variables ##
 ###############
 
-NAME		=
-INCLUDE		=	include
-TESTDIR		=	tester
-LOGDIR		=	log
+NAME		=	wordle
+
+VPATH		=	src
+LIBDIR		=
+INCLUDE		=	
+INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
+BUILDIR		=	build
+DEPDIR		=	$(BUILDIR)/.deps
+
+SRC			=	Interface.cpp \
+				Data.cpp \
+				wordle_main.cpp
+OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
+DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
+
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++20 -g3
+CPPFLAGS	=	$(addprefix -I, $(INCLDIR))
+LDFLAGS		=
+DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 RM			=	/bin/rm -rf
+UNAME		:=	$(shell uname -s)
 
 # FG COLORS
 DEFAULT		=	\033[0m
@@ -29,26 +46,56 @@ DELPREV		=	$(UP)$(DELETE)\r
 CHECK		=	\xE2\x9C\x94
 CROSS		=	\xE2\x9D\x8C
 
+# DISPLAY
+HEAD_SIZE	=	32
+NAME_SIZE	=	$(shell NAME='$(NAME)'; printf "$${\#NAME}")
+PAD_WIDTH	=	$(shell printf "$$((($(HEAD_SIZE) - $(NAME_SIZE)) / 2))")
+PAD_PREC	=	$(shell printf "$$(($(PAD_WIDTH) / 2))")
+PAD_CHAR	=	\*
+PAD_STR		=	$(shell printf '$(PAD_CHAR)%.0s' {1..$(PAD_WIDTH)})
+LEFT_PAD	=	$(shell printf '%-*.*s' $(PAD_WIDTH) $(PAD_PREC) $(PAD_STR))
+RIGHT_PAD	=	$(shell printf '%*.*s' $$(($(PAD_WIDTH) + $(NAME_SIZE) % 2)) $(PAD_PREC) $(PAD_STR))
+BODY_WIDTH	=	$(shell printf "$$(($(HEAD_SIZE) - 1))")
+
 
 ###########
 ## Rules ##
 ###########
 
-all:			run
+
+.PHONY:			all bonus clean fclean header lib re verbose
+
+all:			header $(NAME)
+
+$(BUILDIR)/%.o:	%.cpp | $(DEPDIR)
+				@printf "$(YELLOW)Compiling $@ and generating/checking make dependency file...$(DEFAULT)\n"
+				@$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
+				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
+
+$(NAME):		$(OBJ)
+				@printf "$(YELLOW)Linking source files and generating $@ binary...\n$(DEFAULT)"
+				@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
+				@printf "$(DELPREV)$(GREEN)Binary generated$(DEFAULT)\n"
+
+$(DEPDIR): 
+				@printf "$(YELLOW)Creating $@ folder...$(DEFAULT)\n"
+				@mkdir -p $@
+				@printf "$(DELPREV)"
+$(DEP):
+-include $(wildcard $(DEP))
+
+header:
+				@printf '$(LEFT_PAD)$(BLUE)$(NAME)$(DEFAULT)$(RIGHT_PAD)\n'
 
 clean:
-				@printf "$(YELLOW)Deleting build files...$(DEFAULT)\n"
+				@printf "$(YELLOW)Deleting object and dependency files...$(DEFAULT)\n"
 				@$(RM) $(OBJ)
-				@printf "$(DELPREV)Log files deleted\n"
+				@printf "$(DELPREV)Build files deleted\n"
 
 fclean:			clean
-				@printf "$(YELLOW)Deleting log directory...$(DEFAULT)\n"
-				@$(RM) $(LOGDIR)
-				@printf "$(DELPREV)Log directory deleted\n"
-				@make -sC $(TESTDIR) fclean
-
-run:
-				@./run.sh $(INCLUDE) $(NAME)
+				@printf "$(YELLOW)Deleting build directory...$(DEFAULT)\n"
+				@$(RM) $(BUILDIR) $(NAME)
+				@printf "$(DELPREV)Build directory and binary deleted\n"
 
 re:				fclean
-				@make -s all
+				@$(MAKE) -s all
