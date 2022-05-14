@@ -5,8 +5,8 @@
 NAME		=	wordle
 
 VPATH		=	src
-LIBDIR		=
-INCLUDE		=	
+LIBDIR		=	ncurses
+INCLUDE		=
 INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
@@ -20,7 +20,7 @@ DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++20 -g3
 CPPFLAGS	=	$(addprefix -I, $(INCLDIR))
-LDFLAGS		=
+LDFLAGS		=	$(addprefix -l, $(LIBDIR))
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 RM			=	/bin/rm -rf

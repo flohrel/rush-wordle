@@ -7,9 +7,8 @@ int main()
 {
 	Data 		dictionary;
 
-	Interface::printHeader();
+	Interface::display(dictionary);
 	
-	std::cout << "Total words available: " << dictionary.size() << std::endl;
 	std::cout << dictionary.get_random_word() << std::endl;
 
 	return 0;

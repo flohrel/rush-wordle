@@ -2,6 +2,9 @@
 # define __INTERFACE__H__
 
 # include <iostream>
+# include <ncurses.h>
+
+# include "Data.hpp"
 
 namespace wordle {
 
@@ -12,8 +15,10 @@ public:
 	Interface( void ) {}
 	~Interface( void ) {}
 
-	static void printHeader();
+	static void display( Data const& dictionary );
 
+private:
+	
 
 };
 
