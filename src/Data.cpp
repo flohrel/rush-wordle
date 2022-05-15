@@ -37,6 +37,12 @@ Data::~Data()
 	return ;
 }
 
+Data&	Data::instance()
+{
+	static Data the_inst;
+	return the_inst;
+}
+
 size_t	Data::size() const
 {
 	return ( m_words.size() );

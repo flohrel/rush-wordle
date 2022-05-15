@@ -5,11 +5,7 @@ using namespace wordle;
 
 int main()
 {
-	Data 		dictionary;
-
-	Interface::display(dictionary);
-	
-	std::cout << dictionary.get_random_word() << std::endl;
+	Interface::display();
 
 	return 0;
 }

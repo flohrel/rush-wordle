@@ -15,10 +15,9 @@ public:
 	Interface( void ) {}
 	~Interface( void ) {}
 
-	static void display( Data const& dictionary );
+	static void 	display();
 
-private:
-	
+	static void		printHeader();
 
 };
 

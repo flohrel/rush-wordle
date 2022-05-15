@@ -13,13 +13,15 @@ namespace wordle {
 class Data
 {
 
-public:
+private:
 	Data( void );
 	~Data( void );
 
+public:
+	static Data&		instance();
+
 	size_t				size() const;
 	std::string	const&	get_random_word();
-
 
 private:
 	static constexpr const char*		s_default_dict = "ressources/words.txt";
