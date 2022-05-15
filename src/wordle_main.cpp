@@ -5,7 +5,7 @@ using namespace wordle;
 
 int main()
 {
-	Interface::display();
-
+	Interface	interface;
+	interface.routine();
 	return 0;
 }

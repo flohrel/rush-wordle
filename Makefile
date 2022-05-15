@@ -13,12 +13,13 @@ DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	Interface.cpp \
 				Data.cpp \
+				State.cpp \
 				wordle_main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
 
 CXX			=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++20 -g3
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address
 CPPFLAGS	=	$(addprefix -I, $(INCLDIR))
 LDFLAGS		=	$(addprefix -l, $(LIBDIR))
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d

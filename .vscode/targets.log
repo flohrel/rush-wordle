@@ -1,5 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 /bin/sh: line 1: ${\#NAME}: bad substitution
+
 /bin/sh: line 1: (32 - ) / 2: syntax error: operand expected (error token is ") / 2")
 
 /bin/sh: line 1: ${\#NAME}: bad substitution
@@ -23,8 +24,11 @@ printf: '*': expected a numeric value
 /bin/sh: line 1: ${\#NAME}: bad substitution
 
 /bin/sh: line 1: (32 - ) / 2: syntax error: operand expected (error token is ") / 2")
+
 /bin/sh: line 1: / 2: syntax error: operand expected (error token is "/ 2")
+
 /bin/sh: line 1: ${\#NAME}: bad substitution
+
 /bin/sh: line 1: (32 - ) / 2: syntax error: operand expected (error token is ") / 2")
 
 /bin/sh: line 1: +  % 2: syntax error: operand expected (error token is "% 2")
@@ -36,11 +40,11 @@ printf: '*': expected a numeric value
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 15 13:59:35 2022
+# Make data base, printed on Sun May 15 15:42:08 2022
 
 # Variables
 
-# makefile (from 'Makefile', line 17)
+# makefile (from 'Makefile', line 18)
 OBJ = $(SRC:%.cpp=$(BUILDIR)/%.o)
 # environment
 GDK_BACKEND = x11
@@ -51,14 +55,14 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # makefile (from 'Makefile', line 14)
-SRC = Interface.cpp Data.cpp wordle_main.cpp
+SRC = Interface.cpp Data.cpp State.cpp wordle_main.cpp
 # makefile (from 'Makefile', line 10)
 INCLDIR = $(addsuffix /include,$(LIBDIR) .)
 # environment
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1d958750-2d17-49c3-abea-b9b32e1385ca.sock
 # makefile (from 'Makefile', line 7)
 VPATH = src
-# makefile (from 'Makefile', line 51)
+# makefile (from 'Makefile', line 52)
 NAME_SIZE = $(shell NAME='$(NAME)'; printf "$${\#NAME}")
 # environment
 LC_NAME = fr_FR.UTF-8
@@ -82,7 +86,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 .VARIABLES := 
 # environment
 PWD = /home/flohrel/code/rush-wordle
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 31)
 DEFAULT = \033[0m
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -92,7 +96,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 MAIL = /var/spool/mail/flohrel
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share
-# makefile (from 'Makefile', line 55)
+# makefile (from 'Makefile', line 56)
 PAD_STR = $(shell printf '$(PAD_CHAR)%.0s' {1..$(PAD_WIDTH)})
 # environment
 OLDPWD = /home/flohrel/code/ft_containers
@@ -114,19 +118,19 @@ XAUTHORITY = /home/flohrel/.Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# makefile (from 'Makefile', line 37)
+# makefile (from 'Makefile', line 38)
 CYAN = \033[1;36m
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'Makefile', line 52)
+# makefile (from 'Makefile', line 53)
 PAD_WIDTH = $(shell printf "$$((($(HEAD_SIZE) - $(NAME_SIZE)) / 2))")
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 19)
 DEP = $(SRC:%.cpp=$(DEPDIR)/%.d)
-# makefile (from 'Makefile', line 35)
+# makefile (from 'Makefile', line 36)
 BLUE = \033[1;34m
 # makefile
 CURDIR := /home/flohrel/code/rush-wordle
-# makefile (from 'Makefile', line 27)
+# makefile (from 'Makefile', line 28)
 UNAME := Linux
 # environment
 VSCODE_PIPE_LOGGING = true
@@ -142,9 +146,9 @@ SSH_AUTH_SOCK = /tmp/ssh-XXXXXXLnpBVU/agent.516
 .SHELLFLAGS := -c
 # environment
 XDG_CONFIG_DIRS = /etc/xdg
-# makefile (from 'Makefile', line 24)
+# makefile (from 'Makefile', line 25)
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
-# makefile (from 'Makefile', line 53)
+# makefile (from 'Makefile', line 54)
 PAD_PREC = $(shell printf "$$(($(PAD_WIDTH) / 2))")
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
@@ -154,8 +158,8 @@ P9K_SSH = 0
 GIT_ASKPASS = /opt/visual-studio-code/resources/app/extensions/git/dist/askpass.sh
 # environment
 XDG_SESSION_DESKTOP = xfce
-# makefile (from 'build/.deps/wordle_main.d', line 1)
-MAKEFILE_LIST := Makefile build/.deps/Interface.d build/.deps/Data.d build/.deps/wordle_main.d
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
@@ -168,7 +172,7 @@ VSCODE_PID = 7060
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 47)
+# makefile (from 'Makefile', line 48)
 CROSS = \xE2\x9D\x8C
 # environment
 SESSION_MANAGER = local/flohrel-standardpcq35ich92009:@/tmp/.ICE-unix/465,unix/flohrel-standardpcq35ich92009:/tmp/.ICE-unix/465
@@ -180,7 +184,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# makefile (from 'Makefile', line 46)
+# makefile (from 'Makefile', line 47)
 CHECK = \xE2\x9C\x94
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
@@ -202,7 +206,7 @@ SHLVL = 3
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
-# makefile (from 'Makefile', line 41)
+# makefile (from 'Makefile', line 42)
 UP = \033[1A
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
@@ -218,21 +222,21 @@ LC_MONETARY = fr_FR.UTF-8
 MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
-# makefile (from 'Makefile', line 34)
+# makefile (from 'Makefile', line 35)
 YELLOW = \033[1;33m
 # environment
 LC_TIME = fr_FR.UTF-8
 # environment
 VSCODE_GIT_ASKPASS_MAIN = /opt/visual-studio-code/resources/app/extensions/git/dist/askpass-main.js
-# makefile (from 'Makefile', line 57)
+# makefile (from 'Makefile', line 58)
 RIGHT_PAD = $(shell printf '%*.*s' $$(($(PAD_WIDTH) + $(NAME_SIZE) % 2)) $(PAD_PREC) $(PAD_STR))
-# makefile (from 'Makefile', line 36)
+# makefile (from 'Makefile', line 37)
 MAGENTA = \033[1;35m
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
 TERM_PROGRAM = vscode
-# makefile (from 'Makefile', line 33)
+# makefile (from 'Makefile', line 34)
 GREEN = \033[1;32m
 # environment
 LC_TELEPHONE = fr_FR.UTF-8
@@ -256,7 +260,7 @@ LESS = -R
 DESKTOP_SESSION = xfce
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 32)
 BLACK = \033[1;30m
 # 'override' directive
 GNUMAKEFLAGS := 
@@ -264,15 +268,15 @@ GNUMAKEFLAGS :=
 BROWSER = firefox
 # environment
 LOGNAME = flohrel
-# makefile (from 'Makefile', line 22)
+# makefile (from 'Makefile', line 23)
 CPPFLAGS = $(addprefix -I, $(INCLDIR))
 # environment
 XDG_VTNR = 7
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from 'Makefile', line 26)
+# makefile (from 'Makefile', line 27)
 RM = /bin/rm -rf
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 33)
 RED = \033[1;31m
 # makefile (from 'Makefile', line 11)
 BUILDIR = build
@@ -286,13 +290,13 @@ GTK_MODULES = canberra-gtk-module:canberra-gtk-module
 USER = flohrel
 # default
 MAKE_VERSION := 4.3
-# makefile (from 'Makefile', line 58)
+# makefile (from 'Makefile', line 59)
 BODY_WIDTH = $(shell printf "$$(($(HEAD_SIZE) - 1))")
 # 'override' directive
 .SHELLSTATUS := 0
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 24)
 LDFLAGS = $(addprefix -l, $(LIBDIR))
-# makefile (from 'Makefile', line 50)
+# makefile (from 'Makefile', line 51)
 HEAD_SIZE = 32
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
@@ -306,10 +310,9 @@ _ = /usr/bin/make
 LC_PAPER = fr_FR.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
- 
 # environment
 COLORTERM = truecolor
-# makefile (from 'Makefile', line 56)
+# makefile (from 'Makefile', line 57)
 LEFT_PAD = $(shell printf '%-*.*s' $(PAD_WIDTH) $(PAD_PREC) $(PAD_STR))
 # environment
 XDG_SESSION_CLASS = user
@@ -341,32 +344,33 @@ _P9K_TTY = /dev/pts/3
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile (from 'Makefile', line 42)
+# makefile (from 'Makefile', line 43)
 DELETE = \033[2K
-# makefile (from 'Makefile', line 21)
+# makefile (from 'Makefile', line 22)
 CXXFLAGS = -Wall -Wextra -Werror -std=c++20 -g3
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/flohrel
-# makefile (from 'Makefile', line 54)
+# makefile (from 'Makefile', line 55)
 PAD_CHAR = \*
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'Makefile', line 20)
+# makefile (from 'Makefile', line 21)
 CXX = c++
 # environment
 XDG_MENU_PREFIX = xfce-
 # environment
 TERM_PROGRAM_VERSION = 1.67.1
-# makefile (from 'Makefile', line 43)
+# makefile (from 'Makefile', line 44)
 DELPREV = $(UP)$(DELETE)\r
-# makefile (from 'Makefile', line 38)
+# makefile (from 'Makefile', line 39)
+ 
 WHITE = \033[1;107m
 # environment
 GDMSESSION = xfce
 # environment
 LC_IDENTIFICATION = fr_FR.UTF-8
 # variable set hash-table stats:
-# Load=162/1024=16%, Rehash=0, Collisions=25/316=8%
+# Load=162/1024=16%, Rehash=0, Collisions=25/310=8%
 
 # Pattern-specific Variable Values
 
@@ -375,14 +379,14 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # Directories
 
 # src (device 65025, inode 3934484): No files, no impossibilities so far.
-# . (device 65025, inode 3933024): 12 files, no impossibilities.
+# . (device 65025, inode 3933024): 10 files, no impossibilities.
 
-# 12 files, no impossibilities in 2 directories.
+# 10 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 build/%.o: %.cpp | build/.deps
-#  recipe to execute (from 'Makefile', line 71):
+#  recipe to execute (from 'Makefile', line 72):
 				@printf "$(YELLOW)Compiling $@ and generating/checking make dependency file...$(DEFAULT)\n"
 				@$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
@@ -390,7 +394,8 @@ build/%.o: %.cpp | build/.deps
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
-build/Interface.o: src/Interface.cpp include/Interface.hpp include/Data.hpp
+# Not a target:
+build/Interface.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -401,21 +406,15 @@ verbose:
 #  File does not exist.
 #  File has not been updated.
 
-include/Data.hpp:
+build/.deps/Data.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-build/.deps/Data.d:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-15 13:56:06.143538423
-#  File has been updated.
-#  Successfully updated.
-
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-15 13:46:50.379130239
+#  Last modified 2022-05-15 15:42:01.779766123
 #  File has been updated.
 #  Successfully updated.
 
@@ -426,10 +425,9 @@ lib:
 #  File has not been updated.
 
 build/.deps/wordle_main.d:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-15 13:56:06.896876751
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bonus:
 #  Phony target (prerequisite of .PHONY).
@@ -442,7 +440,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 91):
+#  recipe to execute (from 'Makefile', line 92):
 				@printf "$(YELLOW)Deleting object and dependency files...$(DEFAULT)\n"
 				@$(RM) $(OBJ)
 				@printf "$(DELPREV)Build files deleted\n"
@@ -451,35 +449,18 @@ build/.deps:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 81):
+#  recipe to execute (from 'Makefile', line 82):
 				@printf "$(YELLOW)Creating $@ folder...$(DEFAULT)\n"
 				@mkdir -p $@
 				@printf "$(DELPREV)"
-
-include/Interface.hpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/Interface.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 re: fclean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 101):
+#  recipe to execute (from 'Makefile', line 102):
 				@$(MAKE) -s all
-
-# Not a target:
-src/wordle_main.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # 'override' directive
 header: .SHELLSTATUS := 127
@@ -508,7 +489,7 @@ header:
 # | := 
 # variable set hash-table stats:
 # Load=9/32=28%, Rehash=0, Collisions=15/124=12%
-#  recipe to execute (from 'Makefile', line 88):
+#  recipe to execute (from 'Makefile', line 89):
 				@printf '$(LEFT_PAD)$(BLUE)$(NAME)$(DEFAULT)$(RIGHT_PAD)\n'
 
 # Not a target:
@@ -532,36 +513,41 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 96):
+#  recipe to execute (from 'Makefile', line 97):
 				@printf "$(YELLOW)Deleting build directory...$(DEFAULT)\n"
 				@$(RM) $(BUILDIR) $(NAME)
 				@printf "$(DELPREV)Build directory and binary deleted\n"
 
-build/wordle_main.o: src/wordle_main.cpp include/Data.hpp include/Interface.hpp include/Data.hpp
+# Not a target:
+build/State.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/wordle_main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/.deps/State.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 build/.deps/Interface.d:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-15 13:56:05.170198626
-#  File has been updated.
-#  Successfully updated.
-
-wordle: build/Interface.o build/Data.o build/wordle_main.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 76):
+
+wordle: build/Interface.o build/Data.o build/State.o build/wordle_main.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 77):
 				@printf "$(YELLOW)Linking source files and generating $@ binary...\n$(DEFAULT)"
 				@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
 				@printf "$(DELPREV)$(GREEN)Binary generated$(DEFAULT)\n"
-
-# Not a target:
-src/Data.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -574,13 +560,14 @@ src/Data.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/Data.o: src/Data.cpp include/Data.hpp
+# Not a target:
+build/Data.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=0/78=0%
+# Load=22/1024=2%, Rehash=0, Collisions=0/55=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -588,13 +575,12 @@ build/Data.o: src/Data.cpp include/Data.hpp
 # General ('VPATH' variable) search path:
 # src
 
-# strcache buffers: 1 (0) / strings = 40 / storage = 429 B / avg = 10 B
-# current buf: size = 8162 B / used = 429 B / count = 40 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 367 B / avg = 10 B
+# current buf: size = 8162 B / used = 367 B / count = 36 / avg = 10 B
 
-# strcache performance: lookups = 98 / hit rate = 59%
+# strcache performance: lookups = 66 / hit rate = 45%
 # hash-table stats:
- 
-# Load=40/8192=0%, Rehash=0, Collisions=0/98=0%
-# Finished Make data base on Sun May 15 13:59:35 2022
+# Load=36/8192=0%, Rehash=0, Collisions=0/66=0%
+# Finished Make data base on Sun May 15 15:42:08 2022
 
  

@@ -2,9 +2,9 @@
 # define __INTERFACE__H__
 
 # include <iostream>
-# include <ncurses.h>
 
 # include "Data.hpp"
+# include "State.hpp"
 
 namespace wordle {
 
@@ -12,12 +12,14 @@ class Interface
 {
 
 public:
-	Interface( void ) {}
-	~Interface( void ) {}
+	Interface();
+	~Interface();
 
-	static void 	display();
-
+	void 			routine();
+	static void		displayRefresh();
 	static void		printHeader();
+	static void		printBody();
+	static void		printFooter();
 
 };
 
